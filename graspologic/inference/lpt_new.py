@@ -2,6 +2,7 @@
 # Licensed under the MIT License.
 
 import numpy as np
+import random
 
 from scipy.linalg import orthogonal_procrustes
 
@@ -98,6 +99,7 @@ def lpt_function(
        Journal of Computational and Graphical Statistics, Vol. 26(2), 2017
     """
 
+    random.seed(200)
     if type(embedding) is not str:
         raise TypeError("embedding must be str")
     if type(n_bootstraps) is not int:

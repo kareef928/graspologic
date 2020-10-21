@@ -2,7 +2,7 @@
 # Licensed under the MIT License.
 
 import numpy as np
-
+import random
 from scipy.linalg import orthogonal_procrustes
 
 from ..align import OrthogonalProcrustes
@@ -182,6 +182,7 @@ class LatentPositionTest(BaseInference):
         -------
         self
         """
+        random.seed(200)
         A1 = import_graph(A1)
         A2 = import_graph(A2)
         if not is_symmetric(A1) or not is_symmetric(A2):

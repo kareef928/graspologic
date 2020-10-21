@@ -24,12 +24,10 @@ print(random.randint(300, 500))
 random.seed(100)
 print(random.randint(300, 500))
 
-random.seed(200)
 lpt_class = LatentPositionTest(n_bootstraps=150, n_components=n_components)
 lpt_class.fit(A1, A2)
 print(lpt_class.p_value_)
 
-random.seed(200)
 p_val, _, _ = lpt_function(A1, A2, n_bootstraps=150, n_components=n_components)
 print(p_val)
 
