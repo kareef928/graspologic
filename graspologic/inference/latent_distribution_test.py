@@ -5,7 +5,6 @@ import warnings
 
 import numpy as np
 
-np.random.seed(8888)
 from scipy import stats
 
 from ..embed import select_dimension, AdjacencySpectralEmbed
