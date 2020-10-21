@@ -182,7 +182,6 @@ class LatentPositionTest(BaseInference):
         -------
         self
         """
-        random.seed(200)
         A1 = import_graph(A1)
         A2 = import_graph(A2)
         if not is_symmetric(A1) or not is_symmetric(A2):
@@ -194,8 +193,10 @@ class LatentPositionTest(BaseInference):
             num_dims1 = select_dimension(A1)[0][-1]
             num_dims2 = select_dimension(A2)[0][-1]
             self.n_components = max(num_dims1, num_dims2)
+
         X_hats = self._embed(A1, A2)
         sample_T_statistic = self._difference_norm(X_hats[0], X_hats[1])
+
         null_distribution_1 = self._bootstrap(X_hats[0])
         null_distribution_2 = self._bootstrap(X_hats[1])
 

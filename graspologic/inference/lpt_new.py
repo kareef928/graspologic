@@ -99,7 +99,6 @@ def lpt_function(
        Journal of Computational and Graphical Statistics, Vol. 26(2), 2017
     """
 
-    random.seed(200)
     if type(embedding) is not str:
         raise TypeError("embedding must be str")
     if type(n_bootstraps) is not int:
@@ -131,8 +130,10 @@ def lpt_function(
         num_dims1 = select_dimension(A1)[0][-1]
         num_dims2 = select_dimension(A2)[0][-1]
         n_components = max(num_dims1, num_dims2)
+
     X_hats = embed(A1, A2, embedding, n_components)
     sample_T_statistic = difference_norm(X_hats[0], X_hats[1], embedding, test_case)
+
     null_distribution_1 = bootstrap(
         X_hats[0], embedding, n_components, n_bootstraps, test_case
     )
