@@ -452,12 +452,12 @@ def scipy_is_fully_connected(graph):
 
     if not (isspmatrix_csr(graph) or isinstance(graph, np.ndarray)):
         graph = nx.to_scipy_sparse_matrix(graph)
-    
+
     if is_symmetric(graph):
-        directed = True
-    else:
         directed = False
-    
+    else:
+        directed = True
+
     n_components, labels = connected_components(
         csgraph=graph, directed=directed, connection="weak", return_labels=True
     )
